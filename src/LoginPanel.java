@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 class LoginPanel extends JPanel {
 
@@ -55,6 +57,24 @@ class LoginPanel extends JPanel {
         registerLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         registerLabel.setBounds(50, 470, 150, 30);
         leftPanel.add(registerLabel);
+
+        // Añadir un MouseListener al JLabel
+        registerLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                parentFrame.switchToRegisterPanel();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                registerLabel.setForeground(Color.WHITE); // Cambia el color cuando el mouse está sobre el texto
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                registerLabel.setForeground(new Color(140, 101, 245)); // Restablece el color cuando el mouse sale
+            }
+        });
 
         // Panel derecho
         JPanel rightPanel = new JPanel() {
