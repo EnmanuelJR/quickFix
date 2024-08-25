@@ -47,8 +47,7 @@ public class RegisterPanel extends JPanel {
         add(clientImage);
         add(contractorImage);
 
-        clientButton.addActionListener(e -> parentFrame.switchToLoginPanel());
-        contractorButton.addActionListener(e -> parentFrame.switchToLoginPanel());
+
     }
 
     // Method to resize the image
