@@ -9,7 +9,7 @@ class WelcomePanel extends JPanel {
         this.parentFrame = parentFrame;
         setBackground(new Color(18, 28, 58));
         setLayout(null);
-        setBounds(0, 0, 900, 600);
+        setBounds(0, 0, 1024, 768);
 
         JLabel quickFixLabel = new JLabel("QuickFix");
         quickFixLabel.setForeground(new Color(113, 46, 208));

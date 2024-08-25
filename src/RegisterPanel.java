@@ -9,7 +9,7 @@ public class RegisterPanel extends JPanel {
         this.parentFrame = parentFrame;
         setBackground(new Color(18, 28, 58));
         setLayout(null);
-        setBounds(0, 0, 900, 600);
+        setBounds(0, 0, 1024, 768);
 
         JLabel titleLabel = new JLabel("Welcome to QuickFix");
         titleLabel.setForeground(Color.WHITE);
@@ -33,7 +33,7 @@ public class RegisterPanel extends JPanel {
         contractorButton.setFont(new Font("Arial", Font.BOLD, 16));
         contractorButton.setBounds(550, 150, 150, 50);
 
-        // Load and resize images
+        // Cargar y redimensionar las imágenes
         JLabel clientImage = new JLabel(resizeImage(new ImageIcon("images/client.png"), 250, 150));
         clientImage.setBounds(150, 250, 250, 150);
 
@@ -47,13 +47,23 @@ public class RegisterPanel extends JPanel {
         add(clientImage);
         add(contractorImage);
 
-
+        clientButton.addActionListener(e -> showClientRegistrationForm());
+        contractorButton.addActionListener(e -> showContractorRegistrationForm());
     }
 
-    // Method to resize the image
     private ImageIcon resizeImage(ImageIcon originalIcon, int width, int height) {
         Image img = originalIcon.getImage();
         Image resizedImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImg);
+    }
+
+    private void showContractorRegistrationForm() {
+        JFrame registroContratista = new RegistroContratista(parentFrame);
+        registroContratista.setVisible(true);
+    }
+
+    private void showClientRegistrationForm() {
+        JFrame registroCliente = new RegistroCliente(parentFrame);
+        registroCliente.setVisible(true);
     }
 }
